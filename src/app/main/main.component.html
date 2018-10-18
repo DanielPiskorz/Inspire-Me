@@ -1,5 +1,8 @@
 <button (click)="downloadQuote()">Download quote</button>
-{{(quote | async).quote.body}}
+<br>
+
+<h1>{{(quote | async).quote.body}}</h1>
+<h3>{{(quote | async).quote.author}}</h3>
 <p>
   main works!
 
