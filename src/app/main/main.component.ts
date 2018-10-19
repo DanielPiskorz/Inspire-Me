@@ -21,6 +21,11 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
+  nextContent() {
+    this.downloadQuote();
+    this.downloadImages();
+  }
+
   downloadQuote() {
     this.quote = this.quoteHttpService.getQuote();
   }
