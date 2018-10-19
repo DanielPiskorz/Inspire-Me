@@ -1,8 +1,14 @@
 <button (click)="downloadQuote()">Download quote</button>
+<button (click)="downloadImages()">Download images</button>
 <br>
 
 <h1>{{(quote | async).quote.body}}</h1>
 <h3>{{(quote | async).quote.author}}</h3>
+
+
+<div *ngFor="let image of images">
+  <img src="{{image.largeImageURL}}">
+</div>
 <p>
   main works!
 
