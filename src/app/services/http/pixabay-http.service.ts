@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PixabayData } from '../models/PixabayData';
+import { PixabayData } from 'src/app/models/http/PixabayData';
 
 
 @Injectable({

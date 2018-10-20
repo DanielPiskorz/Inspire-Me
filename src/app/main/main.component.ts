@@ -1,9 +1,8 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Quote } from 'src/app/models/Quote';
-import { QuoteHttpService } from 'src/app/services/quote-http.service';
-import { PixabayHttpService } from 'src/app/services/pixabay-http.service';
-import { PixabayData, Image } from 'src/app/models/PixabayData';
+import { ContentService } from 'src/app/services/content.service';
+
+import { Content } from '../models/Content';
+import { SimpleContent } from '../impl/SimpleContent';
 
 
 @Component({
@@ -11,29 +10,18 @@ import { PixabayData, Image } from 'src/app/models/PixabayData';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
 
-  constructor(private quoteHttpService: QuoteHttpService, private pixabayHttpService: PixabayHttpService) { }
+  constructor(private contentService: ContentService) {
+    contentService.getNextContentObs().subscribe(data => {
+      this.content = data;
+    });
+   }
 
-  quote: Observable<Quote>;
-  images: Image[] = [];
-
-  ngOnInit() {
-  }
+  content: Content = new SimpleContent;
 
   nextContent() {
-    this.downloadQuote();
-    this.downloadImages();
-  }
-
-  downloadQuote() {
-    this.quote = this.quoteHttpService.getQuote();
-  }
-
-  downloadImages() {
-  this.pixabayHttpService.getImages().subscribe(data => {
-      this.images = data.hits;
-    });
+    this.contentService.getNext();
   }
 
 }
