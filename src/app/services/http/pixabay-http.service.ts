@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PixabayData } from 'src/app/models/http/PixabayData';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({
@@ -9,15 +10,17 @@ import { PixabayData } from 'src/app/models/http/PixabayData';
 })
 export class PixabayHttpService {
 
-  _url = 'https://pixabay.com/api/';
-  _key = '5943798-876ea09dff1de2324ea1ec7bd';
-  _query = 'mountains';
-  _constParams = 'image_type=photo&pretty=true';
+  API_URL = environment.PIXABAY_API_URL;
+  KEY = environment.PIXABAY_KEY;
+  QUERY = environment.PIXABAY_QUERY;
+  PARAMS = environment.PIXABAY_PARAMS;
+  IMAGES_PER_PAGE = environment.MAX_IMAGES;
 
   constructor(private http: HttpClient) { }
 
   getImages(): Observable<PixabayData> {
-    return this.http.get<PixabayData>(this._url + '?key=' + this._key + '&q=' + this._query + '&' + this._constParams);
+    return this.http.get<PixabayData>(this.API_URL + '?key=' + this.KEY
+    + '&q=' + this.QUERY + '&per_page=' + this.IMAGES_PER_PAGE + '&' + this.PARAMS);
   }
 
 }

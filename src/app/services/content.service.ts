@@ -5,6 +5,7 @@ import { Content } from 'src/app/models/Content';
 import { SimpleContent } from 'src/app/impl/SimpleContent';
 import { Image } from 'src/app/models/http/PixabayData';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 
 
@@ -13,7 +14,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class ContentService {
 
-  MAX_IMAGES = 20;
+  MAX_IMAGES = environment.MAX_IMAGES;
 
   constructor(private quoteHttpService: QuoteHttpService, private pixabayHttpService: PixabayHttpService) { }
 
