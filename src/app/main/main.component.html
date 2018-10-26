@@ -1,10 +1,13 @@
 <button (click)="nextContent()">Next content</button>
 <br>
 
-<h1>{{content.quoteText}}</h1>
-<h3>{{content.quoteAuthor}}</h3>
 
-<img src="{{content.backgroundImageURL}}">
+<div *ngFor="let content of contents">
+  <h1>{{content.quoteText}}</h1>
+  <h3>{{content.quoteAuthor}}</h3>
+
+  <img src="{{content.backgroundImageURL}}">
+</div>
 
 <p>
   main works!

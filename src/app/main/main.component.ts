@@ -14,14 +14,18 @@ export class MainComponent {
 
   constructor(private contentService: ContentService) {
     contentService.getNextContentObs().subscribe(data => {
-      this.content = data;
+      this.showContent(new SimpleContent(data));
     });
    }
 
-  content: Content = new SimpleContent;
+  contents: Content[] = [];
 
   nextContent() {
     this.contentService.getNext();
+  }
+
+  private showContent(newContent: Content) {
+    this.contents[this.contents.length] = newContent;
   }
 
 }
