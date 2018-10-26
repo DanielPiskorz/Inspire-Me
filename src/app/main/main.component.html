@@ -2,7 +2,7 @@
 <br>
 
 
-<div *ngFor="let content of contents">
+<div @contentFadeIn *ngFor="let content of contents">
   <h1>{{content.quoteText}}</h1>
   <h3>{{content.quoteAuthor}}</h3>
 
