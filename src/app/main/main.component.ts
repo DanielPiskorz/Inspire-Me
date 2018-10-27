@@ -15,6 +15,10 @@ import { SimpleContent } from '../impl/SimpleContent';
       transition('void => *', [
         style({opacity: 0}),
         animate(2000, style({opacity: 100}))
+      ]),
+      transition('* => void', [
+        style({opacity: 100}),
+        animate(2000, style({opacity: 0}))
       ])
     ])
   ]
@@ -38,7 +42,7 @@ export class MainComponent implements OnInit {
   }
 
   private showContent(newContent: Content) {
-    this.contents[this.contents.length] = newContent;
+    this.contents[0] = newContent;
   }
 
 }

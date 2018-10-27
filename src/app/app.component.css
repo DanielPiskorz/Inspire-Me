@@ -1,3 +1,5 @@
-.container{
-  position: absolute;
+.container-fluid{
+  background-color: black;
+  background-attachment: fixed;
+  height: 100vh;
 }
