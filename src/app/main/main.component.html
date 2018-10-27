@@ -3,7 +3,7 @@
 
   <img src="{{content.backgroundImageURL}}">
   <div class="text">
-    <h1>{{content.quoteText}}</h1>
+    <h1>{{content.quoteText ? content.quoteText : 'quote is loading...'}}</h1>
     <h3>{{content.quoteAuthor}}</h3>
   </div>
 </div>

@@ -19,7 +19,7 @@ import { SimpleContent } from '../impl/SimpleContent';
     ])
   ]
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
 
   constructor(private contentService: ContentService) {
     contentService.getNextContentObs().subscribe(data => {
@@ -28,6 +28,10 @@ export class MainComponent {
    }
 
   contents: Content[] = [];
+
+  ngOnInit() {
+    this.nextContent();
+   }
 
   nextContent() {
     this.contentService.getNext();
