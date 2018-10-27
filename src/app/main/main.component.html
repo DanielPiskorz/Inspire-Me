@@ -1,15 +1,17 @@
-<button (click)="nextContent()">Next content</button>
-<br>
 
+<div class="container">
 
-<div @contentFadeIn *ngFor="let content of contents">
-  <h1>{{content.quoteText}}</h1>
-  <h3>{{content.quoteAuthor}}</h3>
+  <div @contentFadeIn *ngFor="let content of contents; let i = index" class="content">
 
-  <img src="{{content.backgroundImageURL}}">
+    <img src="{{content.backgroundImageURL}}">
+    <div class="text">
+      <h1>{{content.quoteText}}</h1>
+      <h3>{{content.quoteAuthor}}</h3>
+    </div>
+  </div>
+
+  <button id="nextContentButton" (click)="nextContent()">Next content</button>
+  <br>
+
 </div>
 
-<p>
-  main works!
-
-</p>
