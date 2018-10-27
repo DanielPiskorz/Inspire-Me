@@ -1,4 +1,5 @@
 
+
 .content{
   height: 100vh;
   width: 100vw;
@@ -16,10 +17,31 @@
 }
 
 .content .text{
-  font-size: 4vw;
+  text-shadow: 2px 2px #333;
+  color: #EEE;
   position: fixed;
-  width: 60vw;
-  left: 20vw;
+  width: 70vw;
+  top: 10vh;
+  height: 70vw;
+  left: 15vw;
+}
+
+.content .text h1{
+  font-weight: 450;
+  font-size: 6vh;
+  font-family: 'Bree Serif', serif;
+  border: 2px solid white;
+  padding: 5vh;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.2)
+}
+
+.content .text h3{
+  padding-top: 2vh;
+  padding-left: 35vw;
+  font-size: 4vh;
+  font-family: 'Courgette', cursive;
+
 }
 
 #nextContentButton{
@@ -28,5 +50,22 @@
   left: 37.5vw;
   top: 75vh;
   z-index: 9999999999999999;
+  font-weight: 700;
+  font-size: 3vh;
+  color: white;
+  border: 0.5vh solid white;
+  padding: 3vh;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  overflow: hidden;
+  outline: none;
+  background-color: transparent;
+  background: rgba(0, 0, 0, 0.4);
 
 }
+
+#nextContentButton:hover{
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 70;
+}
+
